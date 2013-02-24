@@ -47,12 +47,21 @@ class MainPage(webapp.RequestHandler):
 
   def get(self):
     self.response.headers['Content-Type'] = 'text/html'
-    self.response.out.write('<html><body>')
+    self.response.out.write('<html><body><head><link rel="stylesheet" type="text/css" href="css/lastfm.css" /></head>')
     self.response.out.write("""
-          <form action="/last" method="post">
-            <div><label for="username">Enter User</label><input type="text"name="username" id=""username></div>
-            <div><input type="submit" value="Get Recent Tracks from Last.fm"></div>
-          </form>
+         <div id="doc" class="yui-t7">
+           <div id="hd" role="banner"><h1><img src="css/logo.jpg"/></h1></div>
+           <div id="bd" role="main">
+           <div class="yui-g">
+            <form action="/last" method="post">
+              <div><label for="username">Enter User</label><input type="text" name="username" id="username"/>
+                   <input type="submit" value="Get Recent Tracks from Last.fm"></div>
+            </form>
+           <div id="result"></div>
+           </div>
+           </div>
+           <div id="ft"><p>Created by @<a href="http://twitter.com/thinkphp">thinkphp</a> download on <a href="http://github.com/thinkphp/mylastfm2">GitHub</a></p></div>
+         </div>
         </body>
       </html>""")
 
