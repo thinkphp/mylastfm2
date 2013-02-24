@@ -68,7 +68,7 @@ class MainPage(webapp.RequestHandler):
 class Controller(webapp.RequestHandler):
 
       def post(self):
-        self.response.out.write('<html<head><link rel="stylesheet" type="text/css" href="css/lastfm.css" /></head><body><h1>Recently Listened Tracks:</h1>')
+        self.response.out.write('<html><head><link rel="stylesheet" type="text/css" href="css/lastfm.css" /></head><body><h1>Recently Listened Tracks:</h1>')
         self.response.out.write(cgi.escape(self.request.get('username')))
         user = cgi.escape(self.request.get('username'))
         tracks = get_recent_tracks(user)
